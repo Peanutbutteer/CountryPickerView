@@ -157,11 +157,6 @@ extension CountryPickerViewController {
         return isSearchMode ? nil : sectionsTitles[section]
     }
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-    }
-    
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if isSearchMode {
             return nil
@@ -184,7 +179,7 @@ extension CountryPickerViewController {
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         }
     }
     
