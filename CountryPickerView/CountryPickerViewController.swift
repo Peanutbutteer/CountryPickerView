@@ -81,6 +81,7 @@ extension CountryPickerViewController {
         
         tableView.sectionIndexBackgroundColor = .clear
         tableView.sectionIndexTrackingBackgroundColor = .clear
+        tableView.sectionIndexColor = countryPickerView.tintColor
     }
     
     func prepareNavItem() {
@@ -140,7 +141,6 @@ extension CountryPickerViewController {
         cell.imageView?.image = country.flag
         cell.textLabel?.text = name
         cell.accessoryType = country == countryPickerView.selectedCountry ? .checkmark : .none
-        cell.separatorInset = .zero
         return cell
     }
     
