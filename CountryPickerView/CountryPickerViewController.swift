@@ -138,15 +138,19 @@ extension CountryPickerViewController {
             : countries[sectionsTitles[indexPath.section]]![indexPath.row]
         
         let name = countryPickerView.showPhoneCodeInList ? "\(country.name) (\(country.phoneCode))" : country.name
-        cell.imageView?.image = country.flag
+        cell.imageView?.image = imageWithImage(image: country.flag, scaledToSize: CGSize.init(width: 20.0, height: 15.0))
         cell.textLabel?.text = name
         cell.accessoryType = country == countryPickerView.selectedCountry ? .checkmark : .none
         cell.tintColor = countryPickerView.tintColor
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(30)
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
