@@ -141,7 +141,12 @@ extension CountryPickerViewController {
         cell.imageView?.image = country.flag
         cell.textLabel?.text = name
         cell.accessoryType = country == countryPickerView.selectedCountry ? .checkmark : .none
+        cell.tintColor = countryPickerView.tintColor
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(30)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
